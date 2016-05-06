@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block title %}zSphere{% end %}
+
+
+
+{% block rightspan %}
+<div class="col-lg-10">
+    <div class="page-header">
+            <h3>
+                <span>项目</span>
+                <span class="pull-right">
+                    <a href="/deploy/project/add" class="btn btn-small btn-primary"><i class="icon-plus"></i> 新的项目</a>
+                </span>
+            </h3>
+        </div>
+
+    <div class="box">
+        <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="/ansible/">所有</a>
+            </li>
+
+            <li>
+              <a href="/ansible/list_projects/group/ztest"> ztest</a>
+            </li>
+
+       </ul>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th width="10%">项目名称</th>
+                <th width="30%">描述</th>
+                <th width="10%">创建者</th>
+                <th width="10%">组</th>
+                <th width="20%">操作</th>
+            </tr>
+            </thead>
+           <tbody>
+            {% for item in items %}
+            <tr>
+                <td class="text-center"><a href="/assets/server/detail/{{ item['_id'] }}">{{ item["project"] }}</a></td>
+                <td class="text-center">{{ item["project"] }}</td>
+                <td class="text-center">{{ item["description"] }}</td>
+                <td class="text-center">{{ item["create_by"] }}</td>
+                <td class="text-center">{{ item["group"] }}</td>
+
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary ">操作</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/assets/server/edit/{{ item['_id'] }}"><span
+                                    class="glyphicon glyphicon-cog"></span>
+                                修改</a></li>
+                            <li><a href="/assets/server/del/{{ item['_id'] }}"><span
+                                    class="glyphicon glyphicon-trash"></span>
+                                删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+
+            </tr>
+            {% end %}
+            </tbody>
+        </table>
+      </div> <!-- end div box -->
+</div>
+{% end %}
+
+

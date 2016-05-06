@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    {% block head %}
+    {% block meta %}
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% end %}
+
+    <title> {% block title %}{% end %}</title>
+
+    <!-- 全局样式 -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="{{ static_url("css/bootstrap.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("css/bootstrap-theme.min.css") }}">
+    <link rel="stylesheet" href="{{ static_url("css/font-awesome.min.css") }}">
+
+    <!-- 页面样式 -->
+    {% block styles %}{% end %}
+    {% end %}
+</head>
+
+<body>
+    <div id="root">
+        {% block navbar %}
+            {% end %}
+        {% block content %}
+            {% end %}
+    </div>
+
+    <!-- 全局脚本 -->
+    <script src="{{ static_url("js/jquery-1.11.3.min.js") }}"></script>
+    <script src="{{ static_url("js/bootstrap.min.js") }}"></script>
+
+    <!-- 页面脚本 -->
+    {% block javascript %}{% end %}
+
+</body>
+</html>
+

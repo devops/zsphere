@@ -1,0 +1,26 @@
+{% extends "../base.html" %}
+
+{% block title %}系统登陆{% end %}
+
+{% block styles %}
+<link rel="stylesheet" href="{{ static_url("css/app-sigin.css") }}">
+{% end %}
+
+{% block content %}
+<div class="container">
+
+    <form class="form-signin" role="form" action="/users/login" method="post">
+        {% raw xsrf_form_html() %}
+        <h2 class="form-signin-heading text-center text-primary">控制台</h2>
+        <input type="text" name="username" class="form-control" placeholder="邮箱地址" required autofocus>
+        <input type="password" name="password" class="form-control" placeholder="密码" required>
+        {% include "../msg.html" %}
+        <button class="btn btn-primary btn-block btn-lg" type="submit">登陆</button>
+
+        <p>
+            <a href="/users/profile/password/reset/">忘记密码?</a>
+            <a href="/users/signup" style="float: right">注册</a>
+        </p>
+    </form>
+</div>
+{% end %}

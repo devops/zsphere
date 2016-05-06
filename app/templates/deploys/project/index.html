@@ -1,0 +1,62 @@
+{% extends "../layout.html" %}
+
+{% block title %}项目管理{% end %}
+
+
+{% block rightspan %}
+<div class="col-lg-10">
+
+    <div class="page-header">
+            <h3>
+                <span>项目</span>
+                <span class="pull-right">
+                    <a href="/deploys/project/add" class="btn btn-small btn-primary"><i class="icon-plus"></i> 新的项目</a>
+                </span>
+            </h3>
+        </div>
+
+    <div class="row">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th class="text-center">项目</th>
+                <th class="text-center">描述</th>
+                <th class="text-center">组</th>
+                <th class="text-center">创建者</th>
+                <th class="text-center">操作</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for item in items %}
+            <tr>
+                <td class="text-center"><a href="/deploy/project/detail/{{ item['_id']['$oid'] }}">{{ item["project"] }}</a></td>
+                <td class="text-center">{{ item["description"] }}</td>
+                <td class="text-center">{{ item["group"] }}</td>
+                <td class="text-center">{{ item["create_by"] }}</td>
+                <td class="text-center">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary ">操作</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                            <span class="caret"></span>
+                            <span class="sr-only">Toggle Dropdown</span>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="/deploys/project/edit/{{ item['_id']['$oid'] }}"><span
+                                    class="glyphicon glyphicon-cog"></span>
+                                 编辑</a></li>
+                            <li><a href="/deploys/project/del/{{ item['_id']['$oid'] }}"><span
+                                    class="glyphicon glyphicon-trash"></span>
+                                删除</a></li>
+                        </ul>
+                    </div>
+                </td>
+
+            </tr>
+            {% end %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% end %}
+
