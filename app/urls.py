@@ -5,7 +5,7 @@ import api.v1.index
 import api.v1.deploys.project
 import index
 import users
-from app.deploy import deploy
+from app.apps.deploy import deploy
 
 urls = api.v1.index.urls \
         + index.urls \
