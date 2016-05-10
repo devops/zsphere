@@ -30,7 +30,7 @@
             <tbody>
             {% for item in items %}
             <tr>
-                <td class="text-center"><a href="/deploy/project/detail/{{ item['_id']['$oid'] }}">{{ item["project"] }}</a></td>
+                <td class="text-center"><a href="/deploys/project/detail/{{ item['_id']['$oid'] }}">{{ item["project"] }}</a></td>
                 <td class="text-center">{{ item["description"] }}</td>
                 <td class="text-center">{{ item["group"] }}</td>
                 <td class="text-center">{{ item["create_by"] }}</td>

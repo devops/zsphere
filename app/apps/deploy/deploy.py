@@ -88,10 +88,35 @@ class ProjectDeleteHandler(BaseHandler):
         response = yield client.fetch(request)
         self.redirect("/deploys/project")
 
+class ProjectDetailHandler(BaseHandler):
+    @tornado.web.authenticated
+    @tornado.web.asynchronous
+
+    def get(self, *args, **kwargs):
+        self.render("deploys/project/detail.html")
+
+class HostManagementHandler(BaseHandler):
+    @tornado.web.asynchronous
+    @tornado.web.authenticated
+    def get(self, *args, **kwargs):
+        self.render("deploys/project/hostmgmt.html")
+
+class DeployKeyHandler(BaseHandler):
+    @tornado.web.authenticated
+    @tornado.web.asynchronous
+    def get(self, *args, **kwargs):
+        self.render("deploys/project/deploy-key.html")
+
 urls = [
     (r"/deploys", DeployHandler),
     (r"/deploys/project", ProjectHandler),
     (r"/deploys/project/add", ProjectAddHandler),
     (r"/deploys/project/edit/(.*)", ProjectEditHandler),
-    (r"/deploys/project/del/(.*)", ProjectDeleteHandler)
+    (r"/deploys/project/del/(.*)", ProjectDeleteHandler),
+    (r"/deploys/project/detail/(.*)/hostmgmt", HostManagementHandler),
+    (r"/deploys/project/detail/(.*)/deploykey", DeployKeyHandler),
+    (r"/deploys/project/detail/(.*)", ProjectDetailHandler),
+
+
+
 ]

@@ -1,0 +1,60 @@
+{% extends "detail.html" %}
+
+{% block rightpage %}
+<div class="page-header">
+    <h3>部署秘钥 </h3>
+</div>
+
+  <form id="frmProject" class="form-horizontal" method="post">
+
+
+       
+
+            <div class="control-group">
+                <label class="control-label">{% trans "Hosts" %} </label>
+                <div class="controls">
+                    <input id="hosts" name="hosts" type="text" required="required" class="span3" placeholder="host name or group name" >
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" >{% trans "User" %}</label>
+                <div class="controls">
+                    <input id="user" name="user" type="text" required="required" class="span3"  placeholder="root">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label" >{% trans "Password" %}</label>
+                <div class="controls">
+                    <input id="password" name="password" type="password" class="span3" >
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">{% trans "SSH Public Key" %}  </label>
+                <div class="controls">
+                    <div id="sshkeyarea" class="input-append">
+                        <textarea id="sshkey" name="sshkey" type="text" required="required" class="span9" rows="5"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <div class="controls">
+                    <button id="button_deploykey" type="button" class="btn btn-primary">{% trans "Submit" %}</button>
+                </div>
+            </div>
+
+
+
+            <div class="control-group">
+                <label class="control-label">{% trans "Result" %}</label>
+                <div class="controls span9">
+                    <pre id="result_deploykey" class="prettyprint lang-yaml">
+                    </pre>
+                </div>
+            </div>
+
+        </form>
+{% end %}

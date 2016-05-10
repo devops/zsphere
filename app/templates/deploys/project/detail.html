@@ -1,0 +1,60 @@
+{% extends "../layout.html"%}
+
+{% block title %}项目详细信息{% end %}
+
+{%  block page %}
+
+<div class="page-header">
+<h3>wwww</h3>
+</div>
+
+{% block leftpage %}
+<div class="col-lg-2">
+
+    <div class="well">
+
+        <a><span class="glyphicon glyphicon-dashboard"></span> 项目资源</a>
+    <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/deploys/project"><span class="glyphicon glyphicon-dashboard"></span> Inventories</a></li>
+        <li><a href="/deploys/project"><span class="glyphicon glyphicon-dashboard"></span> Hosts</a></li>
+        <li><a href="/deploys/project"><span class="glyphicon glyphicon-dashboard"></span> Playbooks</a></li>
+        <li><a href="/deploys/project"><span class="glyphicon glyphicon-dashboard"></span> Vars</a></li>
+
+    </ul>
+    </div>
+
+
+   <div class="well">
+
+        <a><span class="glyphicon glyphicon-dashboard"></span> 项目模块</a>
+    <ul class="nav nav-pills nav-stacked">
+
+        <li><a href="/deploys/project/detail/572c3836ac055a02aa402595/hostmgmt"><span class="glyphicon glyphicon-dashboard"></span> 主机管理</a></li>
+        <li><a href="/deploys/project/detail/572c3836ac055a02aa402595/deploykey"><span class="glyphicon glyphicon-dashboard"></span> 部署秘钥</a></li>
+        <li><a href="/deploys/project/detail/572c3836ac055a02aa402595/logs"><span class="glyphicon glyphicon-dashboard"></span> 日志管理</a></li>
+
+    </ul>
+    </div>
+
+
+
+</div>
+{% end %}
+
+{% block rightpage %}
+<div class="col-lg-10">
+ wwwwwwww
+
+</div>
+        {% end %}
+
+{%  end  %}
+
+    {% block javascript %}
+<script>
+    $(function () {
+  $('#myModal').popover()
+})
+</script>
+{% end %}
